@@ -1,4 +1,4 @@
-# Projeto AluGames
+# Projeto Carrinho de Compras
 
 ## Sobre
 Projeto utilizado nos cursos de lógica de programação da Alura.
