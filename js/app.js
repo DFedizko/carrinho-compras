@@ -9,20 +9,21 @@ function adicionar() {
     let quantidade = document.getElementById('quantidade').value;
     let subTotal = quantidade * valorUnitario;
     
-    if (document.getElementById('quantidade').value == 0) {
-        return alert('Você precisa adicionar alguma quantidade antes de adicionar ao carrinho.');
-    } else {
-        let carrinho = document.getElementById('lista-produtos');
-        carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
-              <span class="texto-azul">${quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$${subTotal}</span>
-            </section>`;
-    
-        total = total + subTotal;
-        let campoTotal = document.getElementById('valor-total');
-        campoTotal.textContent = `R$${total}`;
-        
-        document.getElementById('quantidade').value = 0;
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert('Você precisa adicionar alguma quantidade válida antes de adicionar ao carrinho.');
+        return;
     }
+
+    let carrinho = document.getElementById('lista-produtos');
+    carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
+          <span class="texto-azul">${quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$${subTotal}</span>
+        </section>`;
+
+    total = total + subTotal;
+    let campoTotal = document.getElementById('valor-total');
+    campoTotal.textContent = `R$${total}`;
+    
+    document.getElementById('quantidade').value = 0;
 }
 
 function editarTexto(tag, texto) {
